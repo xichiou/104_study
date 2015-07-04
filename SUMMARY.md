@@ -2,5 +2,5 @@
 
 * [Introduction](README.md)
 * [CMS](cms.md)
-* Coding
+* [Coding](coding.md)
 
