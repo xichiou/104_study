@@ -39,3 +39,27 @@ ServerName localhost:443
 開啟網頁上 Security， 點選 [allowed only for localhost] 那行的連結，修改 MySQL 密碼
 ![](images/xamp-setup7.png)
 ![](images/xamp-setup8.png)
+
+8. php.ini
+```
+short_open_tag=Off
+error_reporting=E_ALL & ~E_DEPRECATED & ~E_STRICT
+date.timezone=Europe/Berlin
+max_execution_time=30
+max_input_time=60
+memory_limit=128M
+post_max_size=8M
+upload_max_filesize=2M
+```
+改成
+```
+short_open_tag=On
+error_reporting=E_ALL & ~E_NOTICE
+date.timezone=Asia/Taipei
+max_execution_time=300
+max_input_time=300
+memory_limit=300M
+post_max_size=200M
+upload_max_filesize=200M
+```
+
