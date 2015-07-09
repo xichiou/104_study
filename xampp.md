@@ -18,11 +18,11 @@ https://www.apachefriends.org/zh_tw/download.html
 
 4. 修改 Apache->Config->httpd-ssl.conf
 ![](images/xamp-setup4.png)
-* 找到 
+找到 
 ```
 ServerName www.example.com:443
 ```
-* 改成
+改成
 ```
 ServerName localhost:443
 ```
@@ -33,4 +33,8 @@ ServerName localhost:443
 6. XAMPP Control Panel， MySQL->Start 
 ![](images/xamp-setup6.png)
 
-7.XAMPP Control Panel， Apache->Admin 開啟網頁，建議點選英文版本
+7. XAMPP Control Panel， Apache->Admin 開啟網頁，建議點選英文版本
+
+8. 點選網頁上 Security， [allowed only for localhost]那行的連結，修改 MySQL 密碼
+![](images/xamp-setup7.png)
+![](images/xamp-setup8.png)
