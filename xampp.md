@@ -2,7 +2,8 @@
 
 ### 下載
 
-https://www.apachefriends.org/zh_tw/download.html
+https://www.apachefriends.org/zh_tw/index.html
+以下示範版本 5.5.24 和 5.6.8
 
 
 ### 安裝
@@ -33,8 +34,7 @@ ServerName localhost:443
 6. XAMPP Control Panel， MySQL->Start 
 ![](images/xamp-setup6.png)
 
-7. XAMPP Control Panel， Apache->Admin 開啟網頁，建議點選英文版本
-
-8. 點選網頁上 Security， [allowed only for localhost]那行的連結，修改 MySQL 密碼
+7. XAMPP Control Panel， Apache->Admin 開啟網頁，建議點選英文版本。
+開啟網頁上 Security， 點選 [allowed only for localhost] 那行的連結，修改 MySQL 密碼
 ![](images/xamp-setup7.png)
 ![](images/xamp-setup8.png)
