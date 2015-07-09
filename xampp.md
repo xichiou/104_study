@@ -63,3 +63,35 @@ post_max_size=200M
 upload_max_filesize=200M
 ```
 
+
+## 進階設定
+
+1. 開啟 XDebug，修改 php.ini
+```
+[XDebug]
+;zend_extension = "C:\xampp\php\ext\php_xdebug.dll"
+;xdebug.profiler_append = 0
+;xdebug.profiler_enable = 1
+;xdebug.profiler_enable_trigger = 0
+;xdebug.profiler_output_dir = "C:\xampp\tmp"
+;xdebug.profiler_output_name = "cachegrind.out.%t-%s"
+;xdebug.remote_enable = 0
+;xdebug.remote_handler = "dbgp"
+;xdebug.remote_host = "127.0.0.1"
+;xdebug.trace_output_dir = "C:\xampp\tmp"
+```
+改為
+```
+[XDebug]
+zend_extension = "C:\xampp\php\ext\php_xdebug.dll"
+;xdebug.profiler_append = 0
+;xdebug.profiler_enable = 1
+;xdebug.profiler_enable_trigger = 0
+;xdebug.profiler_output_dir = "C:\xampp\tmp"
+;xdebug.profiler_output_name = "cachegrind.out.%t-%s"
+xdebug.remote_enable = 1
+xdebug.remote_handler = "dbgp"
+xdebug.remote_host = "127.0.0.1"
+xdebug.trace_output_dir = "C:\xampp\tmp"
+```
+
