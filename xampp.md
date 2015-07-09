@@ -2,7 +2,8 @@
 
 ### 下載
 
-https://www.apachefriends.org/zh_tw/index.html
+https://www.apachefriends.org
+
 以下示範版本 5.5.24 和 5.6.8
 
 
