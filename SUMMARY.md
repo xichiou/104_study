@@ -5,5 +5,5 @@
 * [Coding](coding.md)
 * [XAMPP](xampp.md)
 * [XOOPS](xoops.md)
-* [eclipse](eclipse.md)
+* [Eclipse](eclipse.md)
 
