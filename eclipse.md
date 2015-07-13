@@ -1,5 +1,5 @@
 # 整合開發環境 IDE ( Interactive Development Environment)
->![](images/XOOPS_structure.jpg)    
+>![](images/XOOPS_structure2.png)    
 >參觀工廠前先安裝這個軟體，可以看清楚裡面的生產線。   
 
 ### Eclipse 下載
@@ -17,7 +17,7 @@
 * 修改字體
 [下載雅黑字體](http://pan.baidu.com/wap/link?uk=2617758444&shareid=2713699767&third=0)  
 ![](images/Eclipse-10.png)
-* 
+* 設置專案
 
    
    
