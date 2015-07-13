@@ -16,6 +16,10 @@
 ### 資料來源
 * [XOOPS - 維基百科](https://zh.wikipedia.org/wiki/XOOPS)
 * [阿榮福利味](http://www.azofreeware.com/2014/01/xoops-256-php.html)
+ 
+
+### 關於本電子書
+本電子書是使用 [Markdown](https://www.google.com.tw/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=markdown%E6%95%99%E5%AD%B8) 格式撰寫，[GitBook](https://www.google.com.tw/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=gitbook+%E6%95%99%E5%AD%B8) 提供平台。
 
 
 
