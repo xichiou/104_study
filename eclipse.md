@@ -1,4 +1,7 @@
 # 整合開發環境 IDE ( Interactive Development Environment)
+>![](images/XOOPS_structure.jpg)    
+>參觀工廠前先安裝這個軟體，可以看清楚裡面的生產線。   
+
 ### Eclipse 下載
 * [Eclipse for PHP Developers](http://www.eclipse.org/downloads/packages/eclipse-php-developers/marsr)
 
@@ -14,7 +17,7 @@
 * 修改字體
 [下載雅黑字體](http://pan.baidu.com/wap/link?uk=2617758444&shareid=2713699767&third=0)  
 ![](images/Eclipse-10.png)
-
+* 
 
    
    
@@ -23,4 +26,3 @@
 2. [Eclipse 偏好設定](http://j796160836.pixnet.net/blog/post/31387535)
 3. [Joomla下的Eclipse設定](https://docs.joomla.org/Configuring_Eclipse_for_joomla_development)
 4. [YouTube教您如何將ECLIPSE中文化與環境設置(吳老師)](https://www.youtube.com/watch?v=_k9X1i5kKYU)
-5. 
