@@ -1,5 +1,5 @@
-# Eclipse
-### 下載
+# 整合開發環境 IDE ( Interactive Development Environment)
+### Eclipse 下載
 * [Eclipse for PHP Developers](http://www.eclipse.org/downloads/packages/eclipse-php-developers/marsr)
 
 * [Java SE Downloads](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
@@ -21,5 +21,6 @@
 ### 參考資料
 1. [在Eclipse上用Xdebug對PHP程式進行除錯(Debug)](http://blog.xuite.net/ahdaa/blog1/42927649)
 2. [Eclipse 偏好設定](http://j796160836.pixnet.net/blog/post/31387535)
-3. [雅黑字體](http://pan.baidu.com/wap/link?uk=2617758444&shareid=2713699767&third=0)
-4. [Joomla下的Eclipse設定](https://docs.joomla.org/Configuring_Eclipse_for_joomla_development)
+3. [Joomla下的Eclipse設定](https://docs.joomla.org/Configuring_Eclipse_for_joomla_development)
+4. [YouTube教您如何將ECLIPSE中文化與環境設置(吳老師)](https://www.youtube.com/watch?v=_k9X1i5kKYU)
+5. 
