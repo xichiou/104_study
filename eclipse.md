@@ -1,7 +1,15 @@
 # Eclipse
 ### 下載
 * [Eclipse for PHP Developers](http://www.eclipse.org/downloads/packages/eclipse-php-developers/marsr)
-* 
+
+* [Java SE Downloads](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+![](images/Eclipse-4.png)
+![](images/Eclipse-5.png)
+* 設定 XDebug
+![](images/Eclipse-9.png)
+![](images/Eclipse-6.png)
+![](images/Eclipse-7.png)
+
 
 ### 參考網站
 1. [在Eclipse上用Xdebug對PHP程式進行除錯(Debug)](http://blog.xuite.net/ahdaa/blog1/42927649)
