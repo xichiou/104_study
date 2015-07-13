@@ -16,7 +16,7 @@
 ### 資料來源
 * [XOOPS - 維基百科](https://zh.wikipedia.org/wiki/XOOPS)
 * [阿榮福利味](http://www.azofreeware.com/2014/01/xoops-256-php.html)
-* 
+
 
 
 
