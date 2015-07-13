@@ -64,7 +64,7 @@ upload_max_filesize=200M
 ```
 
 
-## 進階設定
+## 進階設定(先暫時不用設定)
 
 1. 開啟 XDebug，修改 php.ini
 ```
