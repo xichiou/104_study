@@ -6,10 +6,12 @@
 * 你更可以開發全新的模組，提供給他人使用。
 * 想要國際化你的模組，也是簡單的事。
 * 打電玩花錢又花時間，寫程式是最便宜的休閒活動。
-* 如果八歲小朋友會設計程式，擅長邏輯思考的大人你更沒有問題。[Scratch程式積木](http://www.sses.tn.edu.tw/computer/teach_web/scratch/)
+* 如果八歲小朋友會設計程式，擅長邏輯思考的大人你更沒有問題。   [Scratch程式積木](http://www.sses.tn.edu.tw/computer/teach_web/scratch/)
 
 
-
+### 參考書籍
+* [架站可以很簡單](http://www.kingsinfo.com.tw/teacher/module.php?i=item&tid=8244)
+* [實戰XOOPS模組開發](http://books.gotop.com.tw/v_ACN024100)
 
 ### 資料來源
 * [XOOPS - 維基百科](https://zh.wikipedia.org/wiki/XOOPS)
