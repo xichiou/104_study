@@ -5,7 +5,7 @@
 * [Java SE Downloads](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 ![](images/Eclipse-4.png)
 ![](images/Eclipse-5.png)
-* 設定 XDebug  
+* 設定 XDebug   
 ![](images/Eclipse-9.png)
 ![](images/Eclipse-6.png)
 ![](images/Eclipse-7.png)
