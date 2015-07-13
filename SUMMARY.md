@@ -1,6 +1,6 @@
 # Summary
 
-* [Introduction](README.md)
+* [課程簡介](README.md)
 * [CMS](cms.md)
 * [Coding](coding.md)
 * [XAMPP](xampp.md)
