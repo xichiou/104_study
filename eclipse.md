@@ -11,6 +11,9 @@
 ![](images/Eclipse-7.png)
 * UTF-8 格式  
 ![](images/Eclipse-11.png)
+* 修改字體
+[下載雅黑字體](http://pan.baidu.com/wap/link?uk=2617758444&shareid=2713699767&third=0)  
+![](images/Eclipse-10.png)
 
 
    
