@@ -5,5 +5,4 @@
 * [安裝 XOOPS](xoops.md)
 * [帶你參觀工廠](eclipse.md)
 * [設計模組](coding.md)
-* [code_ready](codeready.md)
 
