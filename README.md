@@ -13,6 +13,9 @@
 * [架站可以很簡單](http://www.kingsinfo.com.tw/teacher/module.php?i=item&tid=8244)
 * [實戰XOOPS模組開發](http://books.gotop.com.tw/v_ACN024100)
 
+### 教學資源
+* [學習PHP](http://www.w3school.com.cn/php/index.asp)
+
 ### 資料來源
 * [XOOPS - 維基百科](https://zh.wikipedia.org/wiki/XOOPS)
 * [阿榮福利味](http://www.azofreeware.com/2014/01/xoops-256-php.html)
