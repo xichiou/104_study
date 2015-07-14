@@ -17,7 +17,10 @@
 * 修改字體
 [下載雅黑字體](http://pan.baidu.com/wap/link?uk=2617758444&shareid=2713699767&third=0)  
 ![](images/Eclipse-10.png)
-* 設置專案 File->New->PHP Project
+* 設置專案 File->New->PHP Project   
+Project name: xoops   
+Create project at existing location(from exiting source): c:\xampp\htdocs
+
 
    
    
