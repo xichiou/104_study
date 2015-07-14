@@ -10,16 +10,16 @@ https://www.apachefriends.org
 
 ### 安裝
 
-1. Learn more about Bitnami for XAMPP 可以不用勾選
+1. Learn more about Bitnami for XAMPP 可以不用勾選   
 ![](images/xamp-setup1.png)
 
-2. 開放防火牆
+2. 開放防火牆   
 ![](images/xamp-setup2.png)
 
-3. 安裝完成，啟動XAMPP控制台
+3. 安裝完成，啟動XAMPP控制台   
 ![](images/xamp-setup3.png)
 
-4. 修改 Apache->Config->httpd-ssl.conf
+4. 修改 Apache->Config->httpd-ssl.conf   
 ![](images/xamp-setup4.png)
 找到 
 ```
