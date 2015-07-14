@@ -12,6 +12,8 @@
 * [XOOPS表單範例](http://163.16.182.100/modules/XoopsForm/)
  
 ### 程式碼
+拷貝以下程式碼的方法：用滑鼠在程式碼開頭的地方點一下，在程式碼結束的地方用鍵盤 Shift 加上滑鼠點一下。
+
 >xoops_version.php
 
 ```php
@@ -126,3 +128,23 @@ $i=1;
 //$modversion['hasNotification'] = 1;
 
 ```
+>sql/mysql.sql   
+
+```sql
+CREATE TABLE `school_news` (
+  `sn` smallint(5) unsigned NOT NULL COMMENT '流水號',
+  `title` varchar(255) NOT NULL COMMENT '標題',
+  `content` text NOT NULL COMMENT '內容',
+  `unit` varchar(255) NOT NULL COMMENT '單位',
+  `uid` mediumint(8) unsigned NOT NULL COMMENT '發布者',
+  `post_date` datetime NOT NULL COMMENT '發布日期'
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+
+ALTER TABLE `school_news` ADD PRIMARY KEY (`sn`);
+
+
+ALTER TABLE `school_news`
+MODIFY `sn` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT '流水號';
+```
+
