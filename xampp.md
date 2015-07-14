@@ -41,7 +41,8 @@ ServerName localhost:443
 ![](images/xamp-setup7.png)
 ![](images/xamp-setup8.png)
 
-8. php.ini
+8. php.ini   
+![](images/xamp-setup4.png)
 ```
 short_open_tag=Off
 error_reporting=E_ALL & ~E_DEPRECATED & ~E_STRICT
