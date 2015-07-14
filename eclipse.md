@@ -19,7 +19,7 @@
 ![](images/Eclipse-10.png)
 * 設置專案 File->New->PHP Project   
 Project name: xoops   
-Create project at existing location(from exiting source): c:\xampp\htdocs
+Create project at existing location(from exiting source): c:\xampp\htdocs\xoops
 
 
    
