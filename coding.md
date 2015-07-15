@@ -1540,3 +1540,42 @@ $xoopsTpl->assign( "isAdmin" , $isAdmin) ;
 include_once XOOPS_ROOT_PATH.'/footer.php';
 ?>
 ```
+
+### 完成   school_news_index.html   
+```php
+<{$bootstrap}>
+<{$jquery}>
+<{$toolbar}>
+
+<{if $now_op=="show_news"}>
+  <h1><{$news.title}></h1>
+
+  本文由 <{$news.unit}> <{$news.uid_name}> 於 <{$news.post_date}> 發表
+
+  <div class="well" style="line-height: 1.8;">
+    <{$news.content}>
+  </div>
+<{else}>
+
+  <h1>新聞列表</h1>
+
+  <table class="table table-striped table-bordered table-hover">
+  <tr>
+    <th>發布日期</th>
+    <th>新聞標題</th>
+    <th>發布單位</th>
+    <th>發布者</th>
+  </tr>
+  <{foreach from=$all_data item=news}>
+    <tr>
+      <td><{$news.post_date}></td>
+      <td><a href="index.php?sn=<{$news.sn}>&op=show_news"><{$news.title}></a></td>
+      <td><{$news.unit}></td>
+      <td><{$news.uid_name}></td>
+    </tr>
+  <{/foreach}>
+  </table>
+  <{$bar}>
+
+<{/if}>
+```
