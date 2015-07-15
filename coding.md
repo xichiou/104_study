@@ -1156,3 +1156,40 @@ function show_form($sn){
 include "footer.php"; //XOOPS檔尾
 
 ```
+
+
+### templates/school_news_adm_main.html   
+
+```
+<!--若要套用bootstrap，請載入以下這三行-->
+<link rel="stylesheet" type="text/css" media="screen" href="<{$xoops_url}>/modules/tadtools/bootstrap/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="<{$xoops_url}>/modules/tadtools/bootstrap/css/bootstrap-responsive.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="<{$xoops_url}>/modules/tadtools/css/xoops_adm.css" />
+
+<h1>新聞列表</h1>
+
+<table class="table table-striped table-bordered table-hover">
+<tr>
+  <th>發布日期</th>
+  <th>新聞標題</th>
+  <th>發布單位</th>
+  <th>發布者</th>
+  <th>功能</th>
+</tr>
+<{foreach from=$all_data item=news}>
+  <tr>
+    <td><{$news.post_date}></td>
+    <td><{$news.title}></a></td>
+    <td><{$news.unit}></td>
+    <td><{$news.uid_name}></td>
+    <td>
+      <a href="main.php?op=del&sn=<{$news.sn}>" class="btn btn-danger btn-mini">刪除</a>
+      <a href="main.php?op=modify&sn=<{$news.sn}>" class="btn btn-warning btn-mini">修改</a>
+    </td>
+  </tr>
+<{/foreach}>
+</table>
+
+
+<{$content}>
+```
