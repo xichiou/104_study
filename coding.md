@@ -297,12 +297,11 @@ include "footer.php"; //XOOPS檔尾
 
 ?>
 ```
+>   
 
 ### 使用表單 admin/main.php
 
-
-```
-
+```sql
 
 CREATE TABLE `school_news` (
   `sn` smallint(5) unsigned NOT NULL COMMENT '流水號',
@@ -320,4 +319,6 @@ ALTER TABLE `school_news`
 
 ALTER TABLE `school_news`
 MODIFY `sn` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT '流水號';
-'''
+
+
+```
