@@ -214,3 +214,18 @@ include "footer.php"; //XOOPS檔尾
 
 ?>
 ```
+
+### templates/school_news_adm_main.html
+```html
+<!--若要套用bootstrap，請載入以下這三行-->
+<link rel="stylesheet" type="text/css" media="screen" href="<{$xoops_url}>/modules/tadtools/bootstrap/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="<{$xoops_url}>/modules/tadtools/bootstrap/css/bootstrap-responsive.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="<{$xoops_url}>/modules/tadtools/css/xoops_adm.css" />
+
+aaaaa
+
+<{$content}>
+
+bbbb
+
+```
