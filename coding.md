@@ -298,9 +298,12 @@ include "footer.php"; //XOOPS檔尾
 ?>
 ```
 
-### sql/mysql.sql       
+### 使用表單 admin/main.php
 
-```sql
+
+```
+
+
 CREATE TABLE `school_news` (
   `sn` smallint(5) unsigned NOT NULL COMMENT '流水號',
   `title` varchar(255) NOT NULL COMMENT '標題',
