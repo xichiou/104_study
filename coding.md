@@ -229,3 +229,71 @@ aaaaa
 bbbb
 
 ```
+
+### 使用表單 admin/main.php
+```php
+<?php
+/*
+main.php 是模組後台的主要內容頁面（入口）。
+但並不一定要叫做 main.php ，您愛命名為什麼都行，只要 menu.php 設定好就好。
+*/
+
+/*------------------ 檔頭（引入檔案） ------------------*/
+//使用樣板檔
+$xoopsOption['template_main'] = "school_news_adm_main.html";
+//引入XOOPS前台檔案檔頭（必要）
+include 'header.php';
+//引入共同檔案設定檔（必要）
+include_once "../function.php"; //引入自訂的共同函數檔
+
+
+/*------------------ 流程判斷（告訴程式現在要做什麼） -----------------*/
+
+//$op 為XOOPS常用之動作變數，用來告知程式欲執行之動作
+$op=isset($_REQUEST['op'])?$_REQUEST['op']:"";
+
+//判斷目前動作該執行哪一個
+switch($op){
+  //當 $op 的值等於「動作1」時，欲執行的動作
+  case "動作1":
+  admin_do_something();
+  break;
+
+  //預設動作
+  default:
+	show_form();
+  break;
+}
+
+/*------------------ 所有函數（實際執行動作） ------------------*/
+
+//當 $op 的值等於「動作1」時，欲執行的函數
+function show_form(){
+	//利用 global 讓 $xoopsTpl 可以在函數中使用
+	global $xoopsTpl;
+
+	//$out_content='Hello2!'	;
+	//$xoopsTpl->assign("樣板標籤" , "欲呈現的內容");
+	//$xoopsTpl->assign('content' , $out_content);
+	
+	include_once(XOOPS_ROOT_PATH."/class/xoopsformloader.php");
+	
+	$form = new XoopsThemeForm("編輯新聞","form", $_SERVER['PHP_SELF']);
+	$form->addElement(new XoopsFormLabel("說明", "此為發布新聞的頁面"));
+	$main = $form->render();
+	
+	$xoopsTpl->assign('content' , $main);
+	
+	
+}
+
+
+
+
+/*------------------ 檔尾（輸出內容到樣板） ------------------*/
+include "footer.php"; //XOOPS檔尾
+
+
+
+?>
+```
