@@ -14,7 +14,7 @@
 ### 程式碼
 拷貝以下程式碼的方法：用滑鼠在程式碼開頭的地方點一下，在程式碼結束的地方用鍵盤 Shift 加上滑鼠點一下。
 
-> xoops_version.php   
+### xoops_version.php   
 
 ```php
 <?php
@@ -298,7 +298,7 @@ include "footer.php"; //XOOPS檔尾
 ?>
 ```
 
-### sql/mysql.sql   
+### sql/mysql.sql       
 
 ```sql
 CREATE TABLE `school_news` (
