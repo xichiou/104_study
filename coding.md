@@ -1189,7 +1189,7 @@ include "footer.php"; //XOOPS檔尾
   </tr>
 <{/foreach}>
 </table>
-
+<{$bar}>
 
 <{$content}>
 ```
