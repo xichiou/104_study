@@ -1466,12 +1466,14 @@ include_once XOOPS_ROOT_PATH."/header.php";
 
 //$op 為XOOPS常用之動作變數，用來告知程式欲執行之動作
 $op=isset($_REQUEST['op'])?$_REQUEST['op']:"";
+$sn=isset($_REQUEST['sn'])?intval($_REQUEST['sn']):"";
+
 
 //判斷目前動作該執行哪一個
 switch($op){
-  //當 $op 的值等於「動作1」時，欲執行的動作
-  case "動作1":
-  do_something();
+ //當 $op 的值等於「動作1」時，欲執行的動作
+  case "show_news":
+  show_news($sn);
   break;
 
   //預設動作
@@ -1481,6 +1483,40 @@ switch($op){
 }
 
 /*------------------ 所有函數（實際執行動作） ------------------*/
+//顯示某篇新聞
+function show_news($sn){
+	global $xoopsDB ,$xoopsTpl,$xoopsUser;
+
+	//列出指定新聞
+	$sql="select * from ".$xoopsDB->prefix("school_news")." where `sn` = '{$sn}'";
+
+	//送到資料庫執行
+	$result=$xoopsDB->query($sql) or die(mysql_error());
+
+
+	//開始陸續抓回資料，一次僅能抓一筆，故用 while 才能抓出所有資料
+	$all=$xoopsDB->fetchArray($result);
+
+	//抓取其中使用者編號
+	$uid=$all['uid'];
+
+	//根據uid轉換成姓名
+	$uid_name=$xoopsUser->getVar('name');
+	if(empty($uid_name))$uid_name=XoopsUser::getUnameFromId($uid,0);
+
+	//將姓名塞進資料陣列中
+	$all['uid_name']=$uid_name;
+
+	//將新聞內容的換行符號轉換成網頁的斷行標籤
+	$all['content']=nl2br($all['content']);
+
+	var_dump($all);die();
+	
+	$xoopsTpl->assign('sn' , $sn);
+	$xoopsTpl->assign('news' , $all);
+	$xoopsTpl->assign('now_op' , "show_news");
+}
+
 
 //當 $op 的值等於「動作1」時，欲執行的函數
 function do_something(){
