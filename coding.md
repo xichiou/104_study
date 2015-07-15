@@ -1433,7 +1433,7 @@ include "footer.php"; //XOOPS檔尾
   <{foreach from=$all_data item=news}>
     <tr>
       <td><{$news.post_date}></td>
-      <td><a href="index.php?sn=<{$news.sn}>&op=show_news"><{$news.title}></a></td>
+      <td><{$news.title}></td>
       <td><{$news.unit}></td>
       <td><{$news.uid_name}></td>
     </tr>
