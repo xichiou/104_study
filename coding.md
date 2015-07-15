@@ -441,7 +441,7 @@ include "footer.php"; //XOOPS檔尾
 
 ```
 
-### 修改   
+### 顯示舊新聞   
 
 ```php
 <?php
