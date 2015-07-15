@@ -1442,3 +1442,65 @@ include "footer.php"; //XOOPS檔尾
   <{$bar}>
 ```
 
+### 前台首頁 index.php
+```php
+<?php
+/*
+index.php 是模組的預設首頁（入口）。
+若前台還有需要別的檔案，可以直接複製此檔然後改名即可。
+*/
+
+
+/*------------------ 檔頭（引入檔案） ------------------*/
+
+//引入共同檔案設定檔及共同函數檔 function.php（必要）
+include "header.php";
+//使用樣板檔
+$xoopsOption['template_main'] = "school_news_index.html";
+//引入XOOPS前台檔案檔頭（必要）
+include_once XOOPS_ROOT_PATH."/header.php";
+
+
+
+/*------------------ 流程判斷（告訴程式現在要做什麼） -----------------*/
+
+//$op 為XOOPS常用之動作變數，用來告知程式欲執行之動作
+$op=isset($_REQUEST['op'])?$_REQUEST['op']:"";
+
+//判斷目前動作該執行哪一個
+switch($op){
+  //當 $op 的值等於「動作1」時，欲執行的動作
+  case "動作1":
+  do_something();
+  break;
+
+  //預設動作
+  default:
+  	news_list();
+  break;
+}
+
+/*------------------ 所有函數（實際執行動作） ------------------*/
+
+//當 $op 的值等於「動作1」時，欲執行的函數
+function do_something(){
+
+}
+
+
+
+/*------------------ 檔尾（輸出內容到樣板） ------------------*/
+
+//套用工具列的程式碼到樣板檔（toolbar_bootstrap()來自tadtools函式庫）
+$xoopsTpl->assign( "toolbar" , toolbar_bootstrap($interface_menu)) ;
+//套用 bootstrap 的引入語法到樣板檔（get_bootstrap()來自tadtools函式庫）
+$xoopsTpl->assign( "bootstrap" , get_bootstrap()) ;
+//套用 jquery 的引入語法到樣板檔（get_jquery()來自tadtools函式庫）
+$xoopsTpl->assign( "jquery" , get_jquery(true)) ;
+//將「是否為該模組管理員」的變數傳送到樣板檔（$isAdmin來自header.php檔）
+$xoopsTpl->assign( "isAdmin" , $isAdmin) ;
+
+//引入XOOPS前台檔案檔尾（必要）
+include_once XOOPS_ROOT_PATH.'/footer.php';
+?>
+```
