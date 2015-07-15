@@ -1412,3 +1412,33 @@ function show_form($sn){
 include "footer.php"; //XOOPS檔尾
 
 ```
+
+### 前台樣板擋
+```html
+<{$bootstrap}>
+<{$jquery}>
+<{$toolbar}>
+
+
+
+  <h1>新聞列表</h1>
+
+  <table class="table table-striped table-bordered table-hover">
+  <tr>
+    <th>發布日期</th>
+    <th>新聞標題</th>
+    <th>發布單位</th>
+    <th>發布者</th>
+  </tr>
+  <{foreach from=$all_data item=news}>
+    <tr>
+      <td><{$news.post_date}></td>
+      <td><a href="index.php?sn=<{$news.sn}>&op=show_news"><{$news.title}></a></td>
+      <td><{$news.unit}></td>
+      <td><{$news.uid_name}></td>
+    </tr>
+  <{/foreach}>
+  </table>
+  <{$bar}>
+```
+
