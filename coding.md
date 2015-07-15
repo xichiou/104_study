@@ -737,3 +737,210 @@ include "footer.php"; //XOOPS檔尾
 '''
 
 
+### list    
+```php
+
+<?php
+/*
+main.php 是模組後台的主要內容頁面（入口）。
+但並不一定要叫做 main.php ，您愛命名為什麼都行，只要 menu.php 設定好就好。
+*/
+
+/*------------------ 檔頭（引入檔案） ------------------*/
+//使用樣板檔
+$xoopsOption['template_main'] = "school_news_adm_main.html";
+//引入XOOPS前台檔案檔頭（必要）
+include 'header.php';
+//引入共同檔案設定檔（必要）
+include_once "../function.php"; //引入自訂的共同函數檔
+
+
+/*------------------ 流程判斷（告訴程式現在要做什麼） -----------------*/
+
+//$op 為XOOPS常用之動作變數，用來告知程式欲執行之動作
+$op=isset($_REQUEST['op'])?$_REQUEST['op']:"";
+$sn=isset($_REQUEST['sn'])?intval($_REQUEST['sn']):"";
+
+
+//判斷目前動作該執行哪一個
+switch($op){
+  //當 $op 的值等於「動作1」時，欲執行的動作
+  case "save_news":
+   save_news($sn);
+  break;
+
+  case "del":
+  	del($sn);
+  break;
+  
+  
+  //預設動作
+  default:
+  	news_list();
+    show_form($sn);
+  break;
+}
+
+/*------------------ 所有函數（實際執行動作） ------------------*/
+//新聞列表
+function news_list(){
+	global $xoopsDB ,$xoopsTpl,$xoopsUser;
+
+	//日期從大排到小，列出所有新聞
+	$sql="select * from ".$xoopsDB->prefix("school_news")." order by `post_date` desc";
+
+
+	//送到資料庫執行
+	$result=$xoopsDB->query($sql) or die(mysql_error());
+
+	//$all_data 代表所有新聞，預設為空值
+	$all_data="";
+
+	//從第0筆資料開始抓取
+	$i=0;
+
+	//開始陸續抓回資料，一次僅能抓一筆，故用 while 才能抓出所有資料
+	while($all=$xoopsDB->fetchArray($result)){
+
+		//抓取其中使用者編號
+		$uid=$all['uid'];
+
+		//根據uid轉換成姓名
+		$uid_name=$xoopsUser->getVar('name');
+		if(empty($uid_name))$uid_name=XoopsUser::getUnameFromId($uid,0);
+
+		//將姓名塞進資料陣列中
+		$all['uid_name']=$uid_name;
+
+		//依序的把抓回的資料塞入$all_data中
+		$all_data[$i]=$all;
+
+		//資料筆數遞增
+		$i++;
+	}
+	
+var_dump($all_data);die();
+
+	//將所有新聞內容送到樣板中
+	$xoopsTpl->assign("all_data" , $all_data);
+
+
+
+}
+
+
+//刪除新聞
+function del($sn){
+	global $xoopsDB;
+
+	//將資料表套用前置字串
+	$table=$xoopsDB->prefix('school_news');
+
+	//產生SQL刪除語法
+	$sql="delete from `{$table}` where sn='{$sn}'";
+
+	//將SQL語法送到資料庫，執行失敗會秀出訊息
+	$xoopsDB->queryF($sql) or die(mysql_error());
+
+	//刪除成功後轉向並秀出訊息
+	redirect_header('main.php', 3, "刪除成功！");
+}
+
+
+
+//儲存新聞
+function save_news($sn){
+    global $xoopsDB ,$xoopsUser;
+    //利用$xoopsUser使用者物件抓取登入者的使用者編號
+    $uid=$xoopsUser->uid();
+
+    //將資料表套用前置字串
+    $table=$xoopsDB->prefix('school_news');
+
+    if($sn){
+        //產生SQL修改語法
+        $sql="update `{$table}` set `title`='{$_POST['title']}', `content`='{$_POST['content']}', `unit`='{$_POST['unit']}', `post_date`=now() where sn='{$sn}'";
+
+    }else{
+        //產生SQL寫入語法
+        $sql="insert into `{$table}` (`title`, `content`, `unit`, `uid`, `post_date`) values('{$_POST['title']}' , '{$_POST['content']}' , '{$_POST['unit']}' , '{$uid}' , now() )";
+    }
+
+    //將SQL語法送到資料庫，執行失敗會秀出訊息
+    $xoopsDB->queryF($sql) or die(mysql_error());
+
+    //儲存成功後轉向並秀出訊息
+    redirect_header('main.php', 3, "發布成功！");
+}
+
+
+function show_form($sn){
+    //利用 global 讓 $xoopsTpl 可以在函數中使用
+    global $xoopsTpl,$xoopsDB;
+
+    $all=array();
+    if($sn){
+        //列出指定新聞
+        $sql="select * from ".$xoopsDB->prefix("school_news")." where `sn` = '{$sn}'";
+        
+        //送到資料庫執行
+        $result=$xoopsDB->query($sql) or die(mysql_error());
+
+
+        //開始陸續抓回資料，一次僅能抓一筆，故用 while 才能抓出所有資料
+        $all=$xoopsDB->fetchArray($result);
+        
+        
+    }
+
+    //$out_content='Hello2!'    ;
+    //$xoopsTpl->assign("樣板標籤" , "欲呈現的內容");
+    //$xoopsTpl->assign('content' , $out_content);
+
+    include_once(XOOPS_ROOT_PATH."/class/xoopsformloader.php");
+
+    //產生一個表單
+  $form = new XoopsThemeForm('新聞編輯表單', 'name', 'main.php', 'post', 1 , '新聞編輯表單');
+
+  //把文字框元件加入表單中
+  $form->addElement(new XoopsFormText('新聞標題', 'title', 60 , 255 , $all['title']) , 1);
+
+  //把大量文字框元件加入表單中
+  $form->addElement(new XoopsFormTextArea ("新聞內容", "content", $all['content'], 5, 50));
+
+  //建立一個下拉選單元件
+  $select = new XoopsFormSelect ("所屬單位", "unit", $all['unit'],1);
+
+  //建立多個選項
+  $options["教導處"]="教導處";
+  $options["總務處"]="總務處";
+  //加入多個選項到下拉選單元件
+  $select->addOptionArray($options);
+  //把下拉選單元件加入表單中
+  $form->addElement($select , 1);
+
+
+  //建立一個隱藏元件
+  $form->addElement(new XoopsFormHidden ("sn", $sn));
+
+
+  //建立一個隱藏元件
+  $form->addElement(new XoopsFormHidden ("op", "save_news"));
+
+  //建立一個送出按鈕
+  $form->addElement(new XoopsFormButton ("", "", "送出", "submit"));
+  //將表單轉換成為網頁語法
+  $main=$form->render();
+
+    $xoopsTpl->assign('content' , $main);
+
+
+}
+
+
+
+
+/*------------------ 檔尾（輸出內容到樣板） ------------------*/
+include "footer.php"; //XOOPS檔尾
+
+```
