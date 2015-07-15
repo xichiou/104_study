@@ -128,7 +128,7 @@ $i=1;
 //$modversion['hasNotification'] = 1;
 
 ```
->admin/menu.php   
+### admin/menu.php   
 ```php
 <?php
 $adminmenu = array();
@@ -154,4 +154,5 @@ $adminmenu[$i]['link'] = 'admin/about.php';
 $adminmenu[$i]['desc'] = _MI_TAD_ADMIN_ABOUT_DESC;
 $adminmenu[$i]['icon'] = 'images/admin/about.png';
 ?>
+
 ```
