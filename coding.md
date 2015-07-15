@@ -1144,7 +1144,7 @@ function show_form($sn){
   //將表單轉換成為網頁語法
   $main=$form->render();
 
-    $xoopsTpl->assign('content' , $main);
+  $xoopsTpl->assign('content' , $main);
 
 
 }
