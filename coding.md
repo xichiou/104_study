@@ -196,7 +196,12 @@ switch($op){
 
 //當 $op 的值等於「動作1」時，欲執行的函數
 function show_form(){
-   echo 'Hello!';
+	//利用 global 讓 $xoopsTpl 可以在函數中使用
+	global $xoopsTpl;
+
+	$out_content='Hello2!'	;
+	//$xoopsTpl->assign("樣板標籤" , "欲呈現的內容");
+	$xoopsTpl->assign('content' , $out_content);
 }
 
 
