@@ -1413,7 +1413,7 @@ include "footer.php"; //XOOPS檔尾
 
 ```
 
-### 前台樣板擋
+### 前台樣板擋 templates/school_news_index.html
 ```html
 <{$bootstrap}>
 <{$jquery}>
