@@ -1542,7 +1542,7 @@ include_once XOOPS_ROOT_PATH.'/footer.php';
 ```
 
 ### 完成   school_news_index.html   
-```php
+```html
 <{$bootstrap}>
 <{$jquery}>
 <{$toolbar}>
@@ -1582,39 +1582,99 @@ include_once XOOPS_ROOT_PATH.'/footer.php';
 
 ### 完成 index.php      
 ```php
-<{$bootstrap}>
-<{$jquery}>
-<{$toolbar}>
+<?php
+/*
+index.php 是模組的預設首頁（入口）。
+若前台還有需要別的檔案，可以直接複製此檔然後改名即可。
+*/
 
-<{if $now_op=="show_news"}>
-  <h1><{$news.title}></h1>
 
-  本文由 <{$news.unit}> <{$news.uid_name}> 於 <{$news.post_date}> 發表
+/*------------------ 檔頭（引入檔案） ------------------*/
 
-  <div class="well" style="line-height: 1.8;">
-    <{$news.content}>
-  </div>
-<{else}>
+//引入共同檔案設定檔及共同函數檔 function.php（必要）
+include "header.php";
+//使用樣板檔
+$xoopsOption['template_main'] = "school_news_index.html";
+//引入XOOPS前台檔案檔頭（必要）
+include_once XOOPS_ROOT_PATH."/header.php";
 
-  <h1>新聞列表</h1>
 
-  <table class="table table-striped table-bordered table-hover">
-  <tr>
-    <th>發布日期</th>
-    <th>新聞標題</th>
-    <th>發布單位</th>
-    <th>發布者</th>
-  </tr>
-  <{foreach from=$all_data item=news}>
-    <tr>
-      <td><{$news.post_date}></td>
-      <td><a href="index.php?sn=<{$news.sn}>&op=show_news"><{$news.title}></a></td>
-      <td><{$news.unit}></td>
-      <td><{$news.uid_name}></td>
-    </tr>
-  <{/foreach}>
-  </table>
-  <{$bar}>
 
-<{/if}>
+/*------------------ 流程判斷（告訴程式現在要做什麼） -----------------*/
+
+//$op 為XOOPS常用之動作變數，用來告知程式欲執行之動作
+$op=isset($_REQUEST['op'])?$_REQUEST['op']:"";
+$sn=isset($_REQUEST['sn'])?intval($_REQUEST['sn']):"";
+
+
+//判斷目前動作該執行哪一個
+switch($op){
+ //當 $op 的值等於「動作1」時，欲執行的動作
+  case "show_news":
+  show_news($sn);
+  break;
+
+  //預設動作
+  default:
+  	news_list();
+  break;
+}
+
+/*------------------ 所有函數（實際執行動作） ------------------*/
+//顯示某篇新聞
+function show_news($sn){
+	global $xoopsDB ,$xoopsTpl,$xoopsUser;
+
+	//列出指定新聞
+	$sql="select * from ".$xoopsDB->prefix("school_news")." where `sn` = '{$sn}'";
+
+	//送到資料庫執行
+	$result=$xoopsDB->query($sql) or die(mysql_error());
+
+
+	//開始陸續抓回資料，一次僅能抓一筆，故用 while 才能抓出所有資料
+	$all=$xoopsDB->fetchArray($result);
+
+	//抓取其中使用者編號
+	$uid=$all['uid'];
+
+	//根據uid轉換成姓名
+	$uid_name=$xoopsUser->getVar('name');
+	if(empty($uid_name))$uid_name=XoopsUser::getUnameFromId($uid,0);
+
+	//將姓名塞進資料陣列中
+	$all['uid_name']=$uid_name;
+
+	//將新聞內容的換行符號轉換成網頁的斷行標籤
+	$all['content']=nl2br($all['content']);
+
+	//var_dump($all);die();
+	
+	$xoopsTpl->assign('sn' , $sn);
+	$xoopsTpl->assign('news' , $all);
+	$xoopsTpl->assign('now_op' , "show_news");
+}
+
+
+//當 $op 的值等於「動作1」時，欲執行的函數
+function do_something(){
+
+}
+
+
+
+/*------------------ 檔尾（輸出內容到樣板） ------------------*/
+
+//套用工具列的程式碼到樣板檔（toolbar_bootstrap()來自tadtools函式庫）
+$xoopsTpl->assign( "toolbar" , toolbar_bootstrap($interface_menu)) ;
+//套用 bootstrap 的引入語法到樣板檔（get_bootstrap()來自tadtools函式庫）
+$xoopsTpl->assign( "bootstrap" , get_bootstrap()) ;
+//套用 jquery 的引入語法到樣板檔（get_jquery()來自tadtools函式庫）
+$xoopsTpl->assign( "jquery" , get_jquery(true)) ;
+//將「是否為該模組管理員」的變數傳送到樣板檔（$isAdmin來自header.php檔）
+$xoopsTpl->assign( "isAdmin" , $isAdmin) ;
+
+//引入XOOPS前台檔案檔尾（必要）
+include_once XOOPS_ROOT_PATH.'/footer.php';
+?>
 ```
