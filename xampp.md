@@ -65,6 +65,17 @@ post_max_size=200M
 upload_max_filesize=200M
 ```
 
+9.開啟 C:\xampp\phpMyAdmin\libraries\Util.class.php    
+> 找到第 1614 行   
+```php
+return strftime($date, $timestamp);
+```
+
+> 改成
+```php
+return strftime("Y-m-d: H:i:s", $timestamp);
+```
+
 
 ## 進階設定
 
